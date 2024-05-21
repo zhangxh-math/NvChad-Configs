@@ -152,7 +152,7 @@ return {
                 local sign = "LspDiagnosticsSign" .. type
                 vim.fn.sign_define(sign, { text = icon, texthl = sign, numhl = "" })
             end
-            vim.lsp.diagnostic.show_line_diagnostics({ focusable = false, border = "single" })
+            vim.diagnostic.open_float({ focusable = true, border = "single" })
         end
 
         -- Configure LSP servers for LaTeX, Lua, and Python
