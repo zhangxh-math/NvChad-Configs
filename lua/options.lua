@@ -14,3 +14,5 @@ opt.wrap = true
 opt.relativenumber = true
 g["loaded_python3_provider"] = nil
 g["python3_host_prog"] = '/usr/bin/python3'
+opt.clipboard:append('unnamedplus')
+

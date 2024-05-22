@@ -19,5 +19,21 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- 在正常模式下使用 Ctrl+Shift+v 粘贴
+vim.api.nvim_set_keymap('n', '<C-S-v>', '"+p', { noremap = true, silent = true })
+
+-- -- 在插入模式下使用 Ctrl+Shift+v 粘贴
+vim.api.nvim_set_keymap('i', '<C-S-v>', '<C-r>+', { noremap = true, silent = true })
+
+-- 在插入模式下使用 Ctrl+z 进行撤销
+vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
+
+-- -- 在插入模式下使用 Ctrl+Shift+z 进行重做
+vim.api.nvim_set_keymap('i', '<C-S-z>', '<C-o><C-r>', { noremap = true, silent = true })
+--
+-- -- 设置执行完撤销和重做后仍然保持在插入模式下
+-- vim.cmd('autocmd InsertLeave * startinsert')
+
+
 -- 可选：多模式下的保存映射
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
