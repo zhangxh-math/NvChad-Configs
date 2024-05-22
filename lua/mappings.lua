@@ -25,6 +25,9 @@ vim.api.nvim_set_keymap('n', '<C-S-v>', '"+p', { noremap = true, silent = true }
 -- -- 在插入模式下使用 Ctrl+Shift+v 粘贴
 vim.api.nvim_set_keymap('i', '<C-S-v>', '<C-r>+', { noremap = true, silent = true })
 
+-- 在可视模式下按下 Ctrl+c 进行复制
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+
 -- 在插入模式下使用 Ctrl+z 进行撤销
 vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
 
