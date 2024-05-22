@@ -5,9 +5,11 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
+local o = vim.o
 local g = vim.g
 local opt = vim.opt
 
+o.guifont = "JetBrainsMono Nerd Font:h13"
 opt.wrap = true
 opt.relativenumber = true
 g["loaded_python3_provider"] = nil
