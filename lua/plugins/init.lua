@@ -22,32 +22,9 @@ return {
     lazy = false,
     config = function()
       vim.g.UltiSnipsSnippetDirectories = {'ultisnips'}
-      vim.g.UltiSnipsExpandTrigger = '<tab>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
-    end,
-  },
-  {
-    "abecodes/tabout.nvim",
-    lazy = false,
-    config = function()
-      require('tabout').setup {
-        tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
-        backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
-        act_as_tab = true, -- shift content if tab out is not possible
-        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-        enable_backwards = true, -- well ...
-        completion = true, -- if the tabkey is used in a completion pum
-        tabouts = {
-          {open = "'", close = "'"},
-          {open = '"', close = '"'},
-          {open = '`', close = '`'},
-          {open = '(', close = ')'},
-          {open = '[', close = ']'},
-          {open = '{', close = '}'}
-        },
-        ignore_beginning = true -- if tabout should ignore the beginning of a filled element
-      }
+      vim.g.UltiSnipsExpandTrigger = '<Tab>'
+      vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
+      vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
     end,
   },
   {
@@ -79,10 +56,6 @@ return {
           ['<Down>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-R>=UltiSnips#ExpandSnippet()<CR>", true, true, true), 'n', true)
-            elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-R>=UltiSnips#JumpForwards()<CR>", true, true, true), 'n', true)
             else
               fallback()
             end
@@ -90,8 +63,6 @@ return {
           ['<Up>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-R>=UltiSnips#JumpBackwards()<CR>", true, true, true), 'n', true)
             else
               fallback()
             end
@@ -167,4 +138,3 @@ return {
     end
   }
 }
-
