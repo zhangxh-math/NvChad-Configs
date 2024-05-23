@@ -38,6 +38,14 @@ return {
   {
     "hrsh7th/nvim-cmp",
     lazy = false,
+    dependencies = {
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          disable_filetype = { "TelescopePrompt", "vim", "tex" },
+        },
+      }
+    },
     config = function()
       local cmp = require 'cmp'
       local lspkind = require('lspkind')

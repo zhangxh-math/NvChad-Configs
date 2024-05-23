@@ -480,9 +480,19 @@ snippet bmat "bmat" iA
 \end{bmatrix} $0
 endsnippet
 
-context "math()"
-snippet () "left( right)" iA
-\left( ${1:${VISUAL}} \right) $0
+priority 100
+snippet ( "braket" iA
+(${1:  })$0
+endsnippet
+
+priority 100
+snippet [ "braket" iA
+[${1:  }]$0
+endsnippet
+
+priority 100
+snippet { "braket" iA
+{${1:  }}$0
 endsnippet
 
 context "math()"
@@ -490,28 +500,33 @@ snippet lr "left( right)" i
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+priority 1000
 context "math()"
-snippet lr( "left( right)" i
+snippet lr( "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+priority 1000
 context "math()"
-snippet lr| "left| right|" i
+snippet lr| "left| right|" iA
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
 
+priority 1000
 context "math()"
-snippet lr{ "left\{ right\}" i
+snippet lr{ "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
+priority 1000
 context "math()"
-snippet lrb "left\{ right\}" i
+snippet lrb "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
+priority 1000
 context "math()"
-snippet lr[ "left[ right]" i
+snippet lr[ "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
@@ -547,7 +562,7 @@ snippet prod "product" w
 endsnippet
 
 snippet part "d/dx" w
-\frac{\partial ${1:V}}{\partial ${2:x}} $0
+\/rac{\partial ${1:V}}{\partial ${2:x}} $0
 endsnippet
 
 snippet diff "d/dx" w
