@@ -7,6 +7,7 @@ local M = {}
 
 M.ui = {
 	theme = "dark_horizon",
+  transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
