@@ -13,6 +13,6 @@ o.guifont = "JetBrainsMono Nerd Font:h13"
 opt.wrap = true
 opt.relativenumber = true
 g["loaded_python3_provider"] = nil
-g["python3_host_prog"] = '/usr/bin/python3'
+g["python3_host_prog"] = '/usr/local/bin/python3'
 opt.clipboard:append('unnamedplus')
 
