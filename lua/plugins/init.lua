@@ -1,3 +1,4 @@
+
 return {
   {
     "stevearc/conform.nvim",
@@ -8,7 +9,7 @@ return {
   },
   {
     "lervag/vimtex",
-    lazy = false,
+    event = "BufReadPre",  -- 使用 BufReadPre 事件懒加载
     config = function()
       vim.g.vimtex_compiler_method = 'latexmk'
       vim.g.vimtex_view_method = 'skim'
@@ -19,7 +20,7 @@ return {
   },
   {
     "SirVer/ultisnips",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
     config = function()
       vim.g.UltiSnipsSnippetDirectories = {'ultisnips'}
       vim.g.UltiSnipsExpandTrigger = '<Tab>'
@@ -29,15 +30,18 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    event = "BufReadPost",  -- 使用 BufReadPost 事件懒加载
     config = {
         highlight = {
+          enable = true,
           additional_vim_regex_highlighting = {"latex"},
         },
+        ensure_installed = {"c", "cpp", "lua", "python", "javascript", "typescript", "html", "css", "markdown", "latex"},
       }
   },
   {
     "hrsh7th/nvim-cmp",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
     dependencies = {
       {
         "windwp/nvim-autopairs",
@@ -56,10 +60,6 @@ return {
           end,
         },
         mapping = cmp.mapping({
---        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
---        ['<C-f>'] = cmp.mapping.scroll_docs(4),
---        ['<C-Space>'] = cmp.mapping.complete(),
---        ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ['<Down>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -100,27 +100,27 @@ return {
   },
   {
     "hrsh7th/cmp-nvim-lsp",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
   },
   {
     "hrsh7th/cmp-path",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
   },
   {
     "quangnguyen30192/cmp-nvim-ultisnips",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
   },
   {
     "f3fora/cmp-spell",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
   },
   {
     "onsails/lspkind-nvim",
-    lazy = false,
+    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    event = "BufReadPre",  -- 使用 BufReadPre 事件懒加载
     config = function()
         local lspconfig = require('lspconfig')
         local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
@@ -143,6 +143,13 @@ return {
                 end
             }
         end
+    end
+  },
+  -- 加载 impatient.nvim 进行模块缓存
+  {
+    'lewis6991/impatient.nvim',
+    config = function()
+      require('impatient')
     end
   }
 }
