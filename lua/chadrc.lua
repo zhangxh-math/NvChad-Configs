@@ -6,7 +6,7 @@ local M = {}
 
 
 M.ui = {
-	theme = "tokyonight",
+	theme = "monekai",
   transparency = true,
 
 	-- hl_override = {
