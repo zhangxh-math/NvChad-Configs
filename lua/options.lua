@@ -15,6 +15,6 @@ opt.wrap = true
 opt.relativenumber = true
 opt.maxmempattern = 1000000
 g["loaded_python3_provider"] = nil
-g["python3_host_prog"] = '/usr/local/bin/python3'
+g["python3_host_prog"] = '/usr/bin/python3'
 opt.clipboard:append('unnamedplus')
 
