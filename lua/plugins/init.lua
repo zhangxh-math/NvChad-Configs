@@ -9,24 +9,46 @@ return {
   },
   {
     "lervag/vimtex",
-    event = "BufReadPre",  -- 使用 BufReadPre 事件懒加载
+    lazy = false,
     config = function()
+      vim.g.tex_flavor = 'latex'
       vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.vim_syntax_enabled = 1
+--    vim.g.vimtex_compiler_method = 'nvr'
       vim.g.vimtex_view_method = 'skim'
-      vim.g.vimtex_complete_enabled = 1
-      vim.g.vimtex_syntax_enabled = 1
       vim.g.vimtex_quickfix_mode = 0
+      vim.g.vimtex_view_skim_sync = 1
+      vim.g.vimtex_view_skim_activate = 1
     end,
   },
   {
     "SirVer/ultisnips",
-    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
+    lazy = false,
     config = function()
       vim.g.UltiSnipsSnippetDirectories = {'ultisnips'}
       vim.g.UltiSnipsExpandTrigger = '<Tab>'
       vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
       vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
     end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+  -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  -- setting the keybinding for LazyGit with 'keys' is recommended in
+  -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
   },
   {
     "nvim-treesitter/nvim-treesitter",
