@@ -31,10 +31,10 @@ vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
 -- 在插入模式下使用 Ctrl+z 进行撤销
 -- vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
 
--- -- 在插入模式下使用 Ctrl+Shift+z 进行重做
+-- 在插入模式下使用 Ctrl+Shift+z 进行重做
 -- vim.api.nvim_set_keymap('i', '<C-S-z>', '<C-o><C-r>', { noremap = true, silent = true })
 --
--- -- 设置执行完撤销和重做后仍然保持在插入模式下
+-- 设置执行完撤销和重做后仍然保持在插入模式下
 -- vim.cmd('autocmd InsertLeave * startinsert')
 
 
