@@ -8,7 +8,7 @@ return {
   },
   {
     "lervag/vimtex",
-    event = "BufReadPre",  -- 使用 BufReadPre 事件懒加载
+    lazy = false,
     config = function()
       vim.g.vimtex_compiler_method = 'latexmk'
       vim.g.vimtex_view_method = 'zathura'
