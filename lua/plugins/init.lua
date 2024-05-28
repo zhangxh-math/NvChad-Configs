@@ -19,7 +19,7 @@ return {
   },
   {
     "SirVer/ultisnips",
-    event = "InsertEnter",  -- 使用 InsertEnter 事件懒加载
+    lazy = false,
     config = function()
       vim.g.UltiSnipsSnippetDirectories = {'ultisnips'}
       vim.g.UltiSnipsExpandTrigger = '<Tab>'
