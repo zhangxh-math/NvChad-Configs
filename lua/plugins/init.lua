@@ -51,7 +51,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     event = "BufReadPost",  -- 使用 BufReadPost 事件懒加载
-    config = {
+    opts = {
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = {"latex"},

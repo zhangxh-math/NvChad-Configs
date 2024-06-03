@@ -42,7 +42,7 @@ snippet tmpa-en "Basic template" b
 
 \newcommand{\incfig}[1]{%
     \def\svgscale{0.38}
-    \import{./Figures/}{#1.pdf_tex}
+    \import{./figures/}{#1.pdf_tex}
 }
 
 \allowdisplaybreaks
@@ -127,6 +127,16 @@ snippet tmpa-cn "Template of Chinese article" b
 \usepackage{lipsum}
 %\usepackage{MnSymbol}
 \usepackage{braket}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+    \def\svgscale{0.38}
+    \import{./figures/}{#1.pdf_tex}
+}
 
 \allowdisplaybreaks
 
